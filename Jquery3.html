@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FUNCIONES::</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $('document').ready(function() {
+            //$('').accion(function(){});
+            //click
+            $('#boton1').click(function() {
+                console.log("Función click");
+                alert("Función click");
+            });
+            //hide
+            $('#boton2').click(function() {
+                $('#parrafo1').hide();
+            });
+            $('#parrafo1').click(function() {
+                $('#parrafo1').hide();
+            });
+            //show
+            $('#boton3').click(function() {
+                $('#parrafo1').show();
+            });
+            //toggle
+            $('#boton4').click(function() {
+                $('#parrafo1').toggle();
+            });
+            //slideUp
+            $('#boton5').click(function() {
+                $('#parrafo2').slideUp();
+            });
+            //slideDown
+            $('#boton6').click(function() {
+                $('#parrafo2').slideDown();
+            });
+            //slideToggle
+            $('#boton7').click(function() {
+                $('#parrafo2').slideToggle();
+            });
+            //slidefadeOut
+            $('#boton8').click(function() {
+                $('#parrafo3').fadeOut();
+            });
+            //slidefadeIn
+            $('#boton9').click(function() {
+                $('#parrafo3').fadeOut();
+            });
+
+            //addClass
+
+            $('#boton10').click(function() {
+                $('#parrafo3').addClass("subrayado");
+            });
+
+            //append
+            $('#parrafo5').click(function() {
+                $('#parrafo5').append('<br> esto es texto adicional <a href=#>link dinamico</a>');
+            });
+
+            //HTML: sobre escribe lo interno al elemento
+            $('#parrafo6').click(function() {
+                $('#parrafo6').html('<img src=sm.png>');
+                $('img').attr('width', '200');
+                $('img').attr('alt', 'sm');
+            });
+            //ATTR
+            $('#boton14').click(function() {
+                var respuesta = $('#boton14').attr('value');
+                var wimagen = $('img').attr('width');
+                alert(respuesta + ' ' + wimagen);
+                //alert(wimagen);
+                alert($('#boton14').val());
+            });
+
+            //val
+            $('#boton15').click(function() {
+                //.val() retorna un string, con el contenido del input
+                var valText1 = $('#text1').val();
+                var valText2 = $('#text2').val();
+                //parseInt()= numero entero /  o parseFloat() numero con decimales /  o Number()
+                //isNaN(valText1); // validar si es numero
+
+                if (isNaN(valText1) || isNaN(valText2)) {
+                    //alert("No es un numero");
+                    $('#boton15').after('<p id=alerta>No es un número </p>');
+                    $('#alerta').addClass('alertaMsg');
+                    $('#text1').addClass('alertaMsg');
+                    $('#text2').addClass('fondo');
+                } else {
+                    if (Number(valText2) == 0) {
+                        $('#boton15').after('<p id=alerta>No se puede dividir por cero </p>');
+                        $('#alerta').addClass('alertaMsg');
+                    } else {
+                        alert(parseFloat(valText1) / Number(valText2));
+                    }
+                }
+            });
+
+            //before
+            $('#parrafo7').click(function() {
+                $('#parrafo7').before('<p>Hello People</p>');
+            });
+            //after
+            $('#parrafo8').click(function() {
+                $('#parrafo8').after('<p>Hello People</p>');
+            })
+
+
+
+
+            //fin JQuery    
+        });
+    </script>
+    <style>
+        .alertaMsg {
+            color: red;
+        }
+        
+        .colores {
+            color: brown;
+        }
+        
+        .fondo {
+            background-color: red;
+        }
+        
+        .subrayado {
+            background-color: crimson;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>FUNCIÓN CLICK</h1>
+        <p>Clickea el botón para ejecutar el evento click</p>
+        <button id="boton1">Funcion click</button>
+        <hr>
+        <h1>FUNCIÓN HIDE, SHOW y TOGGLE</h1>
+        <p id="parrafo1">Clickea el botón para ejecutar el evento hide y otros </p>
+        <button id="boton2">Funcion hide</button>
+        <button id="boton3">Funcion show</button>
+        <button id="boton4">Funcion toggle</button>
+
+
+        <hr>
+        <h1>FUNCIÓN slideDown-slideDown-slideToggle</h1>
+        <p id="parrafo2">Clickea el botón para ejecutar el evento varios</p>
+        <button id="boton5">Funcion slideUp</button>
+        <button id="boton6">Funcion slideDown</button>
+        <button id="boton7">Funcion slideToggle</button>
+
+
+        <hr>
+
+        <h1>FUNCIÓN slidefadeIn-slidefadeOut-addClass</h1>
+        <p id="parrafo3">Clickea el botón para ejecutar el evento varios</p>
+        <button id="boton8">Funcion slidefadeOut</button>
+        <button id="boton9">Funcion slidefadeIn</button>
+        <button id="boton10">Funcion addClass</button>
+        <hr>
+
+        <!-- <h1>FUNCIÓN removeClass- </h1>
+        <p id="parrafo4">Clickea el botón para ejecutar el evento varios</p>
+        <button id="boton11">Funcion slidefadeOut</button>
+        <button id="boton12">Funcion slidefadeIn</button>
+        <button id="boton13">Funcion addClass</button>
+        <hr> -->
+        <h1>APPEND y HTML</h1>
+        <p id="parrafo5">esto es el parrafo 5 </p>
+        <p id="parrafo6"><br> soy elparrafo 6 <a href=#>link dinamico</a> </p>
+        <hr>
+        <h1>ATTR</h1>
+        <input id="boton14" type="button" value="opcion1">
+        <hr>
+        <h1>VAL</h1>
+        <input type="text" name="text1" id="text1">
+        <br>
+        <input type="text" name="text2" id="text2">
+        <button id="boton15">valores de los input</button>
+        <hr>
+        <h1>BEFORE</h1>
+        <p id="parrafo7">Clickea el texto para ejecutar Before</p>
+        <hr>
+        <h1>AFTER</h1>
+        <p id="parrafo8">Clickea el texto para ejecutar After</p>
+        <hr>
+
+
+
+    </div>
+</body>
+
+</html>
